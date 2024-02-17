@@ -77,9 +77,6 @@ lazy val sttp = module(project) in file("modules/sttp")
 lazy val yaml = module(project) in file("modules/yaml")
 lazy val `zio-config` = module(project) in file("modules/zio-config")
 
-// Workaround for https://github.com/scalacenter/scalafix/issues/1488
-val scalafixCheckAll = taskKey[Unit]("No-arg alias for 'scalafixAll --check'")
-
 lazy val commonSettings = Seq(
   // format: off
   homepage := Some(url("https://github.com/pureconfig/pureconfig")),
@@ -110,7 +107,6 @@ lazy val commonSettings = Seq(
 
   scalafmtOnCompile := true,
   scalafixOnCompile := true,
-  scalafixCheckAll := scalafixAll.toTask(" --check").value,
 
   autoAPIMappings := true,
 
